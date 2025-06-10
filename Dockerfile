@@ -28,5 +28,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Expondo a porta 80
 EXPOSE 80
 
-# Inicia o Nginx
+# Inicia o Nginxx
 CMD ["nginx", "-g", "daemon off;"]
