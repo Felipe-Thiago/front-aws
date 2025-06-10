@@ -245,13 +245,12 @@ jobs:
 
             # Verificar container existente
             CONTAINER_ID=$(docker ps -q --filter "name=$REPO_NAME")
-            if [ -n "$CONTAINER_ID" ]; then
-              echo "⚙️ Container atual em execução:"
-              docker inspect --format='{{.Config.Image}}' $CONTAINER_ID
-              echo "🛑 Parando e removendo container atual..."
+            # Remover qualquer container (rodando ou parado) com o nome
+            if docker ps -a --format '{{.Names}}' | grep -Eq "^$REPO_NAME$"; then
+              echo "🛑 Removendo container existente (rodando ou parado)..."
               docker rm -f $REPO_NAME || true
             else
-              echo "ℹ️ Nenhum container atual encontrado com nome: $REPO_NAME"
+              echo "ℹ️ Nenhum container (rodando ou parado) encontrado com nome: $REPO_NAME"
             fi
 
             echo "🧹 Removendo imagem local antiga, se existir..."
