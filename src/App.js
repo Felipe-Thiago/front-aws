@@ -5,6 +5,8 @@ import UserTable from './UserTable';
 import ProductTable from './ProductTable';
 import S3Uploader from './S3Uploader';
 
+const API_BASE_URL = 'http://dsm-felipe-api.duckdns.org/'
+
 function App() {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
@@ -14,8 +16,8 @@ function App() {
     // Fetch users and products from backend
     async function fetchData() {
       try {
-        const userResponse = await axios.get('http://44.201.171.2:3000/usuarios');
-        const productResponse = await axios.get('http://44.201.171.2:3000/produtos');
+        const userResponse = await axios.get(`${API_BASE_URL}/usuarios`);
+        const productResponse = await axios.get(`${API_BASE_URL}/produtos`);
         setUsers(userResponse.data);
         setProducts(productResponse.data);
       } catch (error) {
