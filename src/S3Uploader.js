@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Button, ListGroup } from 'react-bootstrap';
 
-const API_BASE_URL = 'http://3.87.51.86:3000';
+const API_BASE_URL = 'http://dsm-felipe-api.duckdns.org';
 
 const S3Uploader = () => {
   const [buckets, setBuckets] = useState([]);
