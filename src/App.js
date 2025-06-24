@@ -5,7 +5,7 @@ import UserTable from './UserTable';
 import ProductTable from './ProductTable';
 import S3Uploader from './S3Uploader';
 
-const API_BASE_URL = 'http://dsm-felipe-api.duckdns.org/'
+const API_BASE_URL = 'http://dsm-felipe-api.duckdns.org'
 
 function App() {
   const [users, setUsers] = useState([]);
