@@ -192,7 +192,7 @@ jobs:
 
     steps:
       - name: Definir o nome do repositório (caso não exista)
-        if: !steps.versao.outputs.repo_name
+        if: steps.versao.outputs.repo_name == '' || steps.versao.outputs.repo_name == null
         id: define_repo_name
         run: |
           REPO_NAME="${{ github.repository }}"
